@@ -5,7 +5,7 @@ import { RiInstagramFill, RiWhatsappFill } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <div className="bg-[#D9D9D9] p-10 pb-6">
+    <div className="bg-[#D9D9D9] p-10 pb-4">
       <div className="grid grid-cols-4">
         <div>
           <h4 className="text-xl font-bold mb-3 text-black">Catalog</h4>
