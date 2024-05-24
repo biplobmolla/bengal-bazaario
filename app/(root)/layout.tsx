@@ -14,8 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <div className="w-screen min-h-screen bg-white flex flex-col justify-between">
+      <body className="overflow-x-hidden">
+        <div className="w-screen min-h-screen bg-slate-100 flex flex-col justify-between">
           <div>
             <Header />
             <Navigation />

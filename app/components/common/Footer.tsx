@@ -32,7 +32,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h4 className="text-xl font-bold mb-3 text-black">For Clients</h4>
+          <h4 className="text-xl font-bold mb-3 text-black">Contacts</h4>
           <div className="text-black flex flex-col gap-y-2">
             {Contacts?.map((item: any) => (
               <span key={item?.link} className="flex items-center gap-x-2">
