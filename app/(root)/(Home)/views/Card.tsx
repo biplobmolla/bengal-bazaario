@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 
 const Card = ({
@@ -5,14 +6,16 @@ const Card = ({
   rating,
   reviews,
   className,
+  link,
 }: {
   title: string;
   rating: number;
   reviews: number;
   className?: string;
+  link: string;
 }) => {
   return (
-    <div className={`w-56 bg-white p-2 ${className}`}>
+    <Link href={link} className={`w-56 bg-white p-2 ${className}`}>
       <div className="w-full h-60">
         <img
           className="w-full h-full"
@@ -30,7 +33,7 @@ const Card = ({
       <p className="text-xl font-bold text-green-700">
         <span className="mr-0.5">$</span>21
       </p>
-    </div>
+    </Link>
   );
 };
 

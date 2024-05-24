@@ -1,8 +1,28 @@
+"use client";
+
 import { FaStar } from "react-icons/fa";
 import Card from "./views/Card";
-import { Button } from "antd";
+import { Button, message } from "antd";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home() {
+  const [products, setProducts] = useState<any>([]);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const products1 = await axios.get(
+          "https://bengalbazzario-409003dd3e50.herokuapp.com/products"
+        );
+        setProducts(products1?.data);
+      } catch (err: any) {
+        console.log({ message: err.message });
+      }
+    };
+
+    getProducts();
+  }, []);
+
   return (
     <div>
       <div>
@@ -48,13 +68,14 @@ export default function Home() {
         <h4 className="text-center font-bold text-2xl mb-8">Our Products</h4>
         <div className="px-24 mb-10">
           <div className="grid grid-cols-4 justify-center gap-y-8">
-            {Products?.map((product: any) => (
+            {products?.map((product: any, index: any) => (
               <Card
                 key={product?.title}
                 className="justify-self-center"
-                title={product?.title}
+                title={product?.slug}
                 rating={product?.rating}
                 reviews={product?.reviews}
+                link={product?.slug}
               />
             ))}
           </div>
@@ -104,90 +125,90 @@ const Services = [
   { label: "Fishes", icon: "./images/fish.png" },
 ];
 
-const Products = [
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-  {
-    title: "WOOF PUPPY DOG FOOD 3KG",
-    rating: 4.5,
-    reviews: 12,
-  },
-];
+// const Products = [
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+//   {
+//     title: "WOOF PUPPY DOG FOOD 3KG",
+//     rating: 4.5,
+//     reviews: 12,
+//   },
+// ];
