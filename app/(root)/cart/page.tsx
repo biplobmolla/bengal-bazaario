@@ -49,7 +49,7 @@ const page = () => {
               <p>Price: $1</p>
             </div>
             <div>
-              <Button className="w-full bg-[#9ACD32] text-white font-bold h-full py-2 mt-4">
+              <Button className="w-full bg-[#9ACD32] text-white font-bold h-full py-2 mt-10">
                 Checkout
               </Button>
             </div>

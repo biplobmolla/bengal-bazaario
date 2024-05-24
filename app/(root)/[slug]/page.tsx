@@ -5,6 +5,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 const page = () => {
   const params = useParams();
@@ -28,6 +29,10 @@ const page = () => {
   useEffect(() => {
     console.log("Pro: ", product);
   }, [product]);
+
+  const addToCart = () => {
+    Cookies;
+  };
   return (
     <Card className="m-14">
       <div className="flex gap-x-10">
@@ -63,7 +68,10 @@ const page = () => {
             <Button className="px-24 py-2 h-full font-bold bg-[#1A9CB7] text-white">
               Buy Now
             </Button>
-            <Button className="px-24 py-2 h-full font-bold bg-[#9ACD32] text-white">
+            <Button
+              className="px-24 py-2 h-full font-bold bg-[#9ACD32] text-white"
+              onClick={addToCart}
+            >
               Add to cart
             </Button>
           </div>
