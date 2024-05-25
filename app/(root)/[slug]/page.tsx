@@ -4,12 +4,18 @@ import { Button, Card, Rate } from "antd";
 import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import { Store } from "@/app/Store";
 
 const page = () => {
   const params = useParams();
   const [product, setProduct] = useState<any>({});
+
+  const { state, dispatch: ctxDispatch } = useContext<any>(Store);
+  const {
+    cart: { cartItems },
+  } = state;
 
   useEffect(() => {
     const getProduct = async () => {
@@ -30,8 +36,20 @@ const page = () => {
     console.log("Pro: ", product);
   }, [product]);
 
-  const addToCart = () => {
-    Cookies;
+  const addToCartHandler = async (item: any) => {
+    const existItem = cartItems.find((x: any) => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(
+      `https://bengalbazzario-409003dd3e50.herokuapp.com/${params?.slug}`
+    );
+    if (data.countInStock < quantity) {
+      window.alert("Sorry, Product is out of stock");
+      return;
+    }
+    ctxDispatch({
+      type: "CART_ADD_ITEM",
+      payload: { ...item, quantity },
+    });
   };
   return (
     <Card className="m-14">
@@ -70,7 +88,7 @@ const page = () => {
             </Button>
             <Button
               className="px-24 py-2 h-full font-bold bg-[#9ACD32] text-white"
-              onClick={addToCart}
+              onClick={() => addToCartHandler(product)}
             >
               Add to cart
             </Button>

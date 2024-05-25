@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { Footer, Header, Navigation } from "../components";
+import { StoreProvider } from "../Store";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,16 +16,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="overflow-x-hidden">
-        <div className="w-screen min-h-screen bg-slate-100 flex flex-col justify-between">
-          <div>
-            <Header />
-            <Navigation />
+        <StoreProvider>
+          <div className="w-screen min-h-screen bg-slate-100 flex flex-col justify-between">
+            <div>
+              <Header />
+              <Navigation />
+            </div>
+            <main className="text-black">{children}</main>
+            <div>
+              <Footer />
+            </div>
           </div>
-          <main className="text-black">{children}</main>
-          <div>
-            <Footer />
-          </div>
-        </div>
+        </StoreProvider>
       </body>
     </html>
   );
