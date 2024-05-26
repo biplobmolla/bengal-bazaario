@@ -15,6 +15,7 @@ const page = () => {
 
   const [fullName, setFullName] = useState(shippingAddress.fullName || "");
   const [address, setAddress] = useState(shippingAddress.address || "");
+  const [phone, setPhone] = useState(shippingAddress.phone || "");
   const [city, setCity] = useState(shippingAddress.city || "");
   const [postalCode, setPostalCode] = useState(
     shippingAddress.postalCode || ""
@@ -30,6 +31,7 @@ const page = () => {
       payload: {
         fullName,
         address,
+        phone,
         city,
         postalCode,
         country,
@@ -41,6 +43,7 @@ const page = () => {
         JSON.stringify({
           fullName,
           address,
+          phone,
           city,
           postalCode,
           country,
@@ -71,6 +74,15 @@ const page = () => {
               placeholder="i.e Asulia, Savar, Dhaka"
               value={address}
               onChange={(e: any) => setAddress(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="phone">Phone</label>
+            <Input
+              id="phone"
+              placeholder="i.e 01XXXXXXXXX"
+              value={phone}
+              onChange={(e: any) => setPhone(e.target.value)}
             />
           </div>
           <div>
