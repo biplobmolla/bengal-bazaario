@@ -58,7 +58,7 @@ const page = () => {
           <Image
             width={300}
             height={400}
-            src={"/images/bird.png"}
+            src={"/images/dog-bag.png"}
             alt="Bird Image"
           />
         </div>
