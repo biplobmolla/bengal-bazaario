@@ -72,7 +72,7 @@ export default function Home() {
               <Card
                 key={product?.title}
                 className="justify-self-center"
-                title={product?.slug}
+                title={product?.title}
                 rating={product?.rating}
                 reviews={product?.reviews}
                 link={product?.slug}
