@@ -54,7 +54,7 @@ const page = () => {
               {cartItems?.map((item: any) => (
                 <div className="flex bg-white gap-x-5 px-5 py-2 rounded-md my-4">
                   <Image
-                    src="/images/bird.png"
+                    src="/images/dog-bag.png"
                     alt="Bird"
                     width={100}
                     height={100}
