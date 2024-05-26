@@ -34,7 +34,7 @@ const page = () => {
         country,
       },
     });
-    localStorage.setItem(
+    localStorage?.setItem(
       "shippingAddress",
       JSON.stringify({
         fullName,
